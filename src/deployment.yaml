@@ -1,0 +1,20 @@
+# Deployment do Postgre
+apiVersion: ap1/v1
+kind: Deployment
+metadata:
+  name: conversao
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: conversao
+  template:
+    metadata:
+      labels:
+        app: conversao
+    spec:
+      containers:
+      - name: conversao
+        image: node:16.15.0
+        ports:
+        - containerPort: 8080
